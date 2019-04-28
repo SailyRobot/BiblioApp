@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage BackgroundColor="#F8F1E5" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BiblioApp.Model.DetailsLivre" Title="Description">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,30,0,0">
+            <StackLayout>
+                <Label Text="{Binding Details.Title}" FontSize="Large" FontAttributes="Bold" 
+                       HorizontalTextAlignment="Center" WidthRequest="400" />
+            </StackLayout>
+          
+            
+            <StackLayout Margin="0,30,0,0">
+                <Label Text="Ecrit par : " FontSize="Medium" HorizontalTextAlignment="Start"  />
+            </StackLayout>
+            
+    
+           
+            <ListView ItemsSource="{Binding Details.Authors}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" TextColor="#F9BA32"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+               
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

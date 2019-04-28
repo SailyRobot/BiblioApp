@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:BiblioApp" 
+             x:Class="BiblioApp.MainPage"
+             BackgroundColor="#F8F1E5">
+    <NavigationPage.TitleView>
+        <StackLayout HorizontalOptions="FillAndExpand" 
+                        Margin="{OnPlatform iOS='0,0,25,0',
+                        Android='0,0,20,0', Default=0}"
+                        Orientation="Horizontal"
+                        >
+            
+            <Image Source="logo_couleur.png" HeightRequest="40" HorizontalOptions="Center"/>
+            <Label Text="Livres" 
+                    FontAttributes="Bold"
+                    TextColor="White" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+             <Button WidthRequest="100" HeightRequest="12" 
+                     Text="Scanner" Clicked="ScanClick" 
+                     TextColor="#F9BA32"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="End"/>
+            
+        </StackLayout>
+       
+    </NavigationPage.TitleView>
+    
+   <ListView x:Name="listeLivre"
+              HasUnevenRows="true"
+             ItemsSource="{Binding Livres}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                        <Label Text="{Binding Details.Title}" Margin="10,0,0,0" VerticalTextAlignment="Center" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                        <Button WidthRequest="130" HeightRequest="40" Margin="10,15" Text="Supprimer" Clicked="RemoveItem" BackgroundColor="#F9BA32" HorizontalOptions="End"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+    <!--<ListView x:Name="listeLivre">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell x:Name="Item">
+                <ViewCell.ContextActions>
+                    <MenuItem Text="Delete" Clicked="Handle_Clicked" IsDestructive="True"/>
+                </ViewCell.ContextActions>
+                <Grid Padding="10">
+                    <Label Text="{Binding Details.Title}"/>
+                    <Label Text="{Binding Details.Authors}"/>
+                </Grid>
+            </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>-->
+</ContentPage>
